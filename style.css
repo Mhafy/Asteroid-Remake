@@ -1,0 +1,43 @@
+#loading{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+}
+
+canvas {
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges; /*
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -o-crisp-edges;
+	image-rendering: optimize-contrast;*/
+	-ms-interpolation-mode: nearest-neighbor;
+	padding: 0;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border: 2px solid black;
+}
+
+#input_name {
+	position: absolute;
+	color: white;
+	background-color: transparent;
+	text-transform: uppercase;
+	font-size: 12pt;
+	text-align: center;
+	border: 0;
+	width: 10rem;
+	z-index: 999;
+}
+#input_name:focus{
+	outline: none !important;
+}
+
+#info, .place{
+	display: none;
+}
