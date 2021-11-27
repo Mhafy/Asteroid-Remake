@@ -61,7 +61,27 @@ function dateBaseUpdated(data) {
 		document.getElementsByClassName('place')[i].innerHTML = value.toUpperCase(); // putting data to DOM element
 	}
 	*/
-	console.log(data.val());
+	let curData = data.val();
+	let newData = [];
+	let places = document.getElementsByClassName('place');
+	for(let i = 0; i < places.length; i++){
+		let key = Object.keys(curData)[0];
+		for(let d in curData){
+			if(curData[key].score < curData[d].score){
+				key = d;
+			}
+		}
+		newData[i] = {
+			name: key,
+			score: data[key].score
+		};
+		delete curData[key];
+	}
+	for(let i = 0; i < places.length; i++){
+		let value = '';
+		if (i < newData.length) value = newData[i].name + " " + newData[i].score;
+		places[i].innerHTML = value.toUpperCase(); // putting data to DOM element
+	}
 }
 
 // CHECKING FOR IN-GAME UPDATES //
