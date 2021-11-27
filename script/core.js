@@ -163,7 +163,7 @@ function render(){
 		Alignment(LEFT);
 		newLoop(0, document.getElementsByClassName('place').length, i => {
 			let str = document.getElementsByClassName('place')[i].innerHTML;
-			FillString(-ctx.measureText(longestString).width / 2, 20 * i + 20, (i + 1) + ' ' + str);
+			if (str !== '') FillString(-ctx.measureText(longestString).width / 2, 20 * i + 20, (i + 1) + ' ' + str);
 		});
 
 		Alignment(CENTER);
