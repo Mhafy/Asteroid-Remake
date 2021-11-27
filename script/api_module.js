@@ -41,36 +41,19 @@ function insertData(n) {
 	update(ref(db, 'players/'+document.getElementById("input_name").value), {
 		score: n
 	});
-	
+	console.log(n);
 }
 
 // CHECKING FOR DATABASE UPDATES //
 function dateBaseUpdated(data) {
-	/*
-	if (!data.exists()) return; // check if data exists
-	let currentData = data.val();
-	currentData.sort(function (a, b) { // sort data according to players score
-		var keyA = a.score, keyB = b.score;
-		if (keyA > keyB) return -1;
-		if (keyA < keyB) return 1;
-		return 0;
-	});
-	for (let i = 0; i < document.getElementsByClassName('place').length; i++) {
-		let value = '';
-		if (i < currentData.length) value = currentData[i].name + " " + currentData[i].score;
-		document.getElementsByClassName('place')[i].innerHTML = value.toUpperCase(); // putting data to DOM element
-	}
-	*/
 	let curData = data.val();
 	let newData = [];
 	let places = document.getElementsByClassName('place');
 	let n = (Object.keys(curData).length < places.length) ? Object.keys(curData).length : places.length;
-	for(let i = 0; i < n; i++){
+	for (let i = 0; i < n; i++){
 		let key = Object.keys(curData)[0];
-		for(let d in curData){
-			if(curData[key].score < curData[d].score){
-				key = d;
-			}
+		for (let d in curData){
+			if (curData[key].score < curData[d].score) key = d;
 		}
 		newData[i] = {
 			name: key,
@@ -78,7 +61,7 @@ function dateBaseUpdated(data) {
 		};
 		delete curData[key];
 	}
-	for(let i = 0; i < n; i++){
+	for (let i = 0; i < n; i++){
 		let value = '';
 		if (i < newData.length) value = newData[i].name + " " + newData[i].score;
 		places[i].innerHTML = value.toUpperCase(); // putting data to DOM element
