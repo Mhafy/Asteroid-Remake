@@ -73,6 +73,8 @@ function controls() {
 function update() {
 
 	if (inputName !== document.activeElement && inputName.value === "") inputName.value = "GUEST";
+	let str = inputName.value;
+	inputName.value = str.replace(" ", "");
 
 	if (start && tries >= 0) {
 		controls();
