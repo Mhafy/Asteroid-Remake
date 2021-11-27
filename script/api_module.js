@@ -24,21 +24,9 @@ get(ref(db, 'players')).then(dateBaseUpdated).catch(err => console.error("Data C
 
 // ----- INSERTING DATA ------ //
 function insertData(n) {
-	/*
-	get(ref(db, 'players')).then(data => {
-		if (data.exists()) { // checking if data exists
-			let currentData = data.val();
-			currentData.push({ //adding new data to the existing data
-				name: document.getElementById("input_name").value,
-				score: n
-			});
-			return currentData; // returning data to upload to databse
-		} else console.log("No data available");
-	}).then(data => {
-		set(ref(db, "players"), data).then(() => console.log("Data Saved") ).catch(err => console.error("Data Cannot be Saved Error " + err) ); // uploading to database
-	}).catch(err => console.error("Data Cannot be Saved Error " + err) );
-	*/
-	update(ref(db, 'players/'+document.getElementById("input_name").value), {
+	const newPlayerKey = push(child(ref(db), 'players')).key;
+	update(ref(db, 'players/'+newPlayerKey), {
+		name: document.getElementById("input_name").value,
 		score: n
 	});
 	console.log(n);
@@ -55,10 +43,7 @@ function dateBaseUpdated(data) {
 		for (let d in curData){
 			if (curData[key].score < curData[d].score) key = d;
 		}
-		newData[i] = {
-			name: key,
-			score: curData[key].score
-		};
+		newData[i] = curData[key];
 		delete curData[key];
 	}
 	for (let i = 0; i < n; i++){
