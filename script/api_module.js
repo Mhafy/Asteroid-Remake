@@ -24,6 +24,7 @@ get(ref(db, 'players')).then(dateBaseUpdated).catch(err => console.error("Data C
 
 // ----- INSERTING DATA ------ //
 function insertData(n) {
+	/*
 	get(ref(db, 'players')).then(data => {
 		if (data.exists()) { // checking if data exists
 			let currentData = data.val();
@@ -33,10 +34,17 @@ function insertData(n) {
 			});
 			return currentData; // returning data to upload to databse
 		} else console.log("No data available");
-		}).then(data => {
-			set(ref(db, "players"), data).then(() => console.log("Data Saved") ).catch(err => console.error("Data Cannot be Saved Error " + err) ); // uploading to database
-		}).catch(err => console.error("Data Cannot be Saved Error " + err) );
+	}).then(data => {
+		set(ref(db, "players"), data).then(() => console.log("Data Saved") ).catch(err => console.error("Data Cannot be Saved Error " + err) ); // uploading to database
+	}).catch(err => console.error("Data Cannot be Saved Error " + err) );
+	*/
+	const update = {};
+	update['/players/'] = {
+		name: document.getElementById("input_name").value,
+		score: n
 	}
+	update(ref(db), updates);
+}
 
 // CHECKING FOR DATABASE UPDATES //
 function dateBaseUpdated(data) {
