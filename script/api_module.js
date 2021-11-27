@@ -38,9 +38,7 @@ function insertData(n) {
 		set(ref(db, "players"), data).then(() => console.log("Data Saved") ).catch(err => console.error("Data Cannot be Saved Error " + err) ); // uploading to database
 	}).catch(err => console.error("Data Cannot be Saved Error " + err) );
 	*/
-	const newPostKey = push(child(ref(db), 'players')).key;
-	update(ref(db, 'players/'+newPostKey), {
-		name: document.getElementById("input_name").value,
+	update(ref(db, 'players/'+document.getElementById("input_name").value), {
 		score: n
 	});
 	
@@ -48,6 +46,7 @@ function insertData(n) {
 
 // CHECKING FOR DATABASE UPDATES //
 function dateBaseUpdated(data) {
+	/*
 	if (!data.exists()) return; // check if data exists
 	let currentData = data.val();
 	currentData.sort(function (a, b) { // sort data according to players score
@@ -61,6 +60,8 @@ function dateBaseUpdated(data) {
 		if (i < currentData.length) value = currentData[i].name + " " + currentData[i].score;
 		document.getElementsByClassName('place')[i].innerHTML = value.toUpperCase(); // putting data to DOM element
 	}
+	*/
+	console.log(data.val());
 }
 
 // CHECKING FOR IN-GAME UPDATES //
