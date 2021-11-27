@@ -73,7 +73,7 @@ function dateBaseUpdated(data) {
 		}
 		newData[i] = {
 			name: key,
-			score: data[key].score
+			score: curData[key].score
 		};
 		delete curData[key];
 	}
