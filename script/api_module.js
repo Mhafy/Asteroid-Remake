@@ -60,7 +60,7 @@ function dateBaseUpdated(data) {
 		if (i < currentData.length) value = currentData[i].name + " " + currentData[i].score;
 		document.getElementsByClassName('place')[i].innerHTML = value.toUpperCase(); // putting data to DOM element
 	}
-	*/
+	
 	let curData = data.val();
 	let newData = [];
 	let places = document.getElementsByClassName('place');
@@ -82,6 +82,8 @@ function dateBaseUpdated(data) {
 		if (i < newData.length) value = newData[i].name + " " + newData[i].score;
 		places[i].innerHTML = value.toUpperCase(); // putting data to DOM element
 	}
+	*/
+	console.log(data);
 }
 
 // CHECKING FOR IN-GAME UPDATES //
