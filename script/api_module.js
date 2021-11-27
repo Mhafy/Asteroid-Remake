@@ -83,7 +83,7 @@ function dateBaseUpdated(data) {
 		places[i].innerHTML = value.toUpperCase(); // putting data to DOM element
 	}
 	*/
-	console.log(data.val()["MHAFY"]);
+	console.log(Object.keys(data.val()));
 }
 
 // CHECKING FOR IN-GAME UPDATES //
