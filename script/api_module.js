@@ -38,10 +38,10 @@ function insertData(n) {
 		set(ref(db, "players"), data).then(() => console.log("Data Saved") ).catch(err => console.error("Data Cannot be Saved Error " + err) ); // uploading to database
 	}).catch(err => console.error("Data Cannot be Saved Error " + err) );
 	*/
-	update(ref(db, 'players/'), {
+	update(ref(db, 'players/'), [{
 		name: document.getElementById("input_name").value,
 		score: n
-	});
+	}]);
 }
 
 // CHECKING FOR DATABASE UPDATES //
