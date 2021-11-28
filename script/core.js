@@ -339,5 +339,5 @@ function gameOver() {
 		detail: {
 			score: score	
 		}
-	});
+	}));
 }
