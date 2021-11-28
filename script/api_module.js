@@ -54,6 +54,7 @@ function dateBaseUpdated(data) {
 }
 
 // CHECKING FOR IN-GAME UPDATES //
+/*
 let updateChecking = setInterval(function () {
 	let score = document.getElementById("info").innerHTML;
 	if (score !== '') { // tracking score if there is
@@ -61,4 +62,10 @@ let updateChecking = setInterval(function () {
 		document.getElementById("info").innerHTML = '';
 	}
 }, 1000 / 60);
+
+*/
+let info = document.getElementById("info");
+info.addEventListener("gameover", function(data){
+	insertData(parseInt(data.detail.score));
+}, false);
 onValue(ref(db, 'players'), dateBaseUpdated); // checking for updates in the database
