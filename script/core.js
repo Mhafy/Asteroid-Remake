@@ -334,5 +334,10 @@ function gameOver() {
 	//	name: inputName.value,
 	//	score: score
 	//});
-	document.getElementById("info").innerHTML = score;
+	//document.getElementById("info").innerHTML = score;
+	document.getElementById("info").dispatchEvent(new CustomEvent("gameover", {
+		detail: {
+			score: score	
+		}
+	});
 }
